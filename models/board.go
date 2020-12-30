@@ -9,11 +9,7 @@ type Board struct {
 // NewBoard returns an instance of a board.
 // The paramaeters width and height are speaking for themselves.
 func NewBoard(width, height int) *Board {
-	player := Player{
-		life: 3,
-		x: -1,
-		unicode: "Λ",
-	}
+	player := DefaultPlayer()
 
 	board := new(Board)
 
