@@ -18,3 +18,16 @@ func TestPlayerMoveRight(t *testing.T) {
 
 	assert.Equal(t, expected, actual)
 }
+
+// TestPlayerMoveLeft tests method moveLeft()
+// updates the player's position.
+func TestPlayerMoveLeft(t *testing.T) {
+	player := DefaultPlayer()
+
+	player.moveLeft()
+
+	expected := -1
+	actual := player.x
+
+	assert.Equal(t, expected, actual)
+}
