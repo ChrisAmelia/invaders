@@ -1,6 +1,6 @@
 package models
 
-type board struct {
+type Board struct {
 	height, width int
 	player Player
 	aliens[] Alien
@@ -8,14 +8,14 @@ type board struct {
 
 // NewBoard returns an instance of a board.
 // The paramaeters width and height are speaking for themselves.
-func NewBoard(width, height int) *board {
+func NewBoard(width, height int) *Board {
 	player := Player{
 		life: 3,
 		x: -1,
 		unicode: "Λ",
 	}
 
-	board := new(board)
+	board := new(Board)
 
 	board.player = player
 	board.width  = width
@@ -27,7 +27,7 @@ func NewBoard(width, height int) *board {
 // String returns a representation of the board.
 // It is a map representing the game invaders
 // and should be a square/rectangle map.
-func (board board) String() string {
+func (board Board) String() string {
 	if board.width < 0 || board.height < 0 {
 		panic("Dimensions cannot be negative.")
 	}
