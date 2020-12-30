@@ -26,15 +26,15 @@ func Test0x0BoardString(t *testing.T) {
 	assert.Equal(t, expected, actual, "Expecting an empty string for a board with no dimensions.")
 }
 
-// Test1x1DoardToString tests the string representation
+// Test1x1BoardToString tests the string representation
 // of the board with dimensions 1x1.
-func Test1x1DoardString(t *testing.T) {
+func Test1x1BoardString(t *testing.T) {
 	board := NewBoard(1, 1)
 
 	expected := ""
 	expected += "+-+" + "\n"
 	expected += "| |" + "\n"
-	expected += "* *"
+	expected += "*Λ*"
 
 	actual := board.String()
 
@@ -55,7 +55,7 @@ func Test4x4DoardString(t *testing.T) {
 	expected += "|    |" + "\n"
 	expected += "|    |" + "\n"
 	expected += "|    |" + "\n"
-	expected += "*    *"
+	expected += "*Λ   *"
 
 	actual := board.String()
 
