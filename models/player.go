@@ -22,3 +22,11 @@ func DefaultPlayer() Player {
 
 	return player
 }
+
+// moveRight moves the player one case to the right
+// and returns its updated position.
+func (player *Player) moveRight() int {
+	player.x += 1
+
+	return player.x
+}
