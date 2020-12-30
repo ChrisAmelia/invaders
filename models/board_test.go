@@ -65,30 +65,6 @@ func Test4x4DoardString(t *testing.T) {
 	assert.Equal(t, expected, actual, message)
 }
 
-// Test4x4BoardStringWithPlayerBottomLeft tests the string representation
-// of the board with dimensions 4x4 and a player present
-// on the bottom left.
-func Test4x4BoardStringWithPlayerBottomLeft(t *testing.T) {
-	board := NewBoard(4, 4)
-
-	board.player.x = 0
-
-	expected := ""
-	expected += "+----+" + "\n"
-	expected += "|    |" + "\n"
-	expected += "|    |" + "\n"
-	expected += "|    |" + "\n"
-	expected += "|    |" + "\n"
-	expected += "*Λ   *"
-
-	actual := board.String()
-
-	message := "Expecting a square, representation should be :\n"
-	message += expected
-
-	assert.Equal(t, expected, actual, message)
-}
-
 // Test4x4BoardStringWithPlayerBottomRight tests the string representation
 // of the board with dimensions 4x4 and a player present
 // on the bottom right.
