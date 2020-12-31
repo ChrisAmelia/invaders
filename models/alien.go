@@ -7,6 +7,10 @@ type Alien struct {
 	unicode string
 }
 
+var (
+	aliens []Alien
+)
+
 // NewAlien returns an instance of Alien.
 // Parameter life defines the life of the Alien.
 // Parameter x defines the Alien's abscissa.
@@ -28,7 +32,15 @@ func NewAlien(life, x, y int, unicode string) Alien {
 // Paramater x defines the Alien's abscissa.
 // Parameter y defines the Alien's ordinate.
 func DefaultAlien(x, y int) Alien {
+	for _, alien := range aliens {
+		if alien.x == x && alien.y == y {
+			panic("An alien at this position already exists.")
+		}
+	}
+
 	alien := NewAlien(1, x, y, "V")
+
+	aliens = append(aliens, alien)
 
 	return alien
 }
