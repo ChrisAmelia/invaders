@@ -27,9 +27,9 @@ func DefaultAlien() Alien {
 	return alien
 }
 
-// moveDown moves the alien one square down
+// MoveDown moves the alien one square down
 // and returns its updated position.
-func (alien *Alien) moveDown() int {
+func (alien *Alien) MoveDown() int {
 	alien.y -= 1
 
 	return alien.y

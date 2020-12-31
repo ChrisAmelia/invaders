@@ -23,17 +23,17 @@ func DefaultPlayer() Player {
 	return player
 }
 
-// moveRight moves the player one square to the right
+// MoveRight moves the player one square to the right
 // and returns its updated position.
-func (player *Player) moveRight() int {
+func (player *Player) MoveRight() int {
 	player.x += 1
 
 	return player.x
 }
 
-// moveLeft moves the player one square to the left
+// MoveLeft moves the player one square to the left
 // and returns its updated position.
-func (player *Player) moveLeft() int {
+func (player *Player) MoveLeft() int {
 	player.x -= 1
 
 	return player.x

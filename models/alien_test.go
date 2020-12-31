@@ -13,7 +13,7 @@ func TestAlienMoveDown(t *testing.T) {
 
 	alien.y = 7
 
-	alien.moveDown()
+	alien.MoveDown()
 
 	expected := 6
 	actual := alien.y

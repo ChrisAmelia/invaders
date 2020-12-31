@@ -11,7 +11,7 @@ import (
 func TestPlayerMoveRight(t *testing.T) {
 	player := DefaultPlayer()
 
-	player.moveRight()
+	player.MoveRight()
 
 	expected := 1
 	actual := player.x
@@ -24,7 +24,7 @@ func TestPlayerMoveRight(t *testing.T) {
 func TestPlayerMoveLeft(t *testing.T) {
 	player := DefaultPlayer()
 
-	player.moveLeft()
+	player.MoveLeft()
 
 	expected := -1
 	actual := player.x
