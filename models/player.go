@@ -3,7 +3,7 @@ package models
 
 // Player represents the current player, the space vessel.
 type Player struct {
-	life      uint
+	life      int
 	x         int
 	unicode   string
 }
@@ -12,7 +12,7 @@ type Player struct {
 // Parameter life defines the Player's life.
 // Parameter position defines the Player's abscissa.
 // Parameter unicode defines the Player's string representation.
-func NewPlayer(life uint, position int, unicode string) Player {
+func NewPlayer(life int, position int, unicode string) Player {
 	player := Player{life: life, x: position, unicode: unicode}
 
 	return player
