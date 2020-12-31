@@ -9,7 +9,7 @@ import (
 // TestAlienMoveDown tests method moveDown()
 // updates the alien's position.
 func TestAlienMoveDown(t *testing.T) {
-	alien := DefaultAlien()
+	alien := DefaultAlien(0, 0)
 
 	alien.y = 7
 

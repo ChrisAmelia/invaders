@@ -8,6 +8,10 @@ type Alien struct {
 }
 
 // NewAlien returns an instance of Alien.
+// Parameter life defines the life of the Alien.
+// Parameter x defines the Alien's abscissa.
+// Parameter y defines the Alien's ordinate.
+// Parameter unicode defines the Alien's string representation.
 func NewAlien(life, x, y int, unicode string) Alien {
 	alien := Alien{
 		life: life,
@@ -20,9 +24,11 @@ func NewAlien(life, x, y int, unicode string) Alien {
 }
 
 // DefaultAlien returns an instance of Alien
-// with default values set.
-func DefaultAlien() Alien {
-	alien := NewAlien(1, 0, 0, "V")
+// with default values set: 1 life and a string representation.
+// Paramater x defines the Alien's abscissa.
+// Parameter y defines the Alien's ordinate.
+func DefaultAlien(x, y int) Alien {
+	alien := NewAlien(1, x, y, "V")
 
 	return alien
 }

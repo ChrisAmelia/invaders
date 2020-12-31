@@ -9,6 +9,9 @@ type Player struct {
 }
 
 // NewPlayer returns an instance of a Player.
+// Parameter life defines the Player's life.
+// Parameter position defines the Player's abscissa.
+// Parameter unicode defines the Player's string representation.
 func NewPlayer(life uint, position int, unicode string) Player {
 	player := Player{life: life, x: position, unicode: unicode}
 
