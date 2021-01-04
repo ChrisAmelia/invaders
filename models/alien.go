@@ -29,12 +29,14 @@ func NewAlien(life, x, y int, unicode string) Alien {
 
 // DefaultAlien returns an instance of Alien
 // with default values set: 1 life and a string representation.
+// If an alien is already present at given coordinates then
+// this alien is returned.
 // Paramater x defines the Alien's abscissa.
 // Parameter y defines the Alien's ordinate.
 func DefaultAlien(x, y int) Alien {
 	for _, alien := range aliens {
 		if alien.x == x && alien.y == y {
-			panic("An alien at this position already exists.")
+			return alien
 		}
 	}
 

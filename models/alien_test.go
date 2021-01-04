@@ -7,13 +7,33 @@ import (
 )
 
 // TestAlienDefaultAlien tests method DefaultAlien(int, int)
-// cannot generate two aliens on the same position.
+// generates a new alien if given positions (x,y) are not occupied,
+// otherwise returns the existing alien.
 func TestAlienDefaultAlien(t *testing.T) {
 	x, y := 1, 1
 
+	// Initial case: no aliens on board
+	expected := 0
+	actual := len(aliens)
+
+	assert.Equal(t, expected, actual)
+
+	// Generate one alien
 	DefaultAlien(x, y)
 
-	assert.Panics(t, func() { DefaultAlien(x, y) }, "Should panic when generating two aliens on the same positions.")
+	expected = 1
+	actual = len(aliens)
+
+	assert.Equal(t, expected, actual)
+
+	// Generate one alien on the same position,
+	// the number of aliens shouldn't increase
+	DefaultAlien(x, y)
+
+	expected = 1
+	actual = len(aliens)
+
+	assert.Equal(t, expected, actual)
 }
 
 // TestAlienMoveDown tests method moveDown()
