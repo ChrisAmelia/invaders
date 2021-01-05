@@ -44,9 +44,9 @@ func Test1x1BoardString(t *testing.T) {
 	assert.Equal(t, expected, actual, message)
 }
 
-// Test4x4DoardString tests the string representation
+// Test4x4BoardString tests the string representation
 // of the board with dimensions 4x4.
-func Test4x4DoardString(t *testing.T) {
+func Test4x4BoardString(t *testing.T) {
 	board := NewBoard(4, 4)
 
 	expected := ""
