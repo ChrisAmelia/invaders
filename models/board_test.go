@@ -125,23 +125,26 @@ func Test5x5BoardStringWithPlayerBottomRight(t *testing.T) {
 	assert.Equal(t, expected, actual, message)
 }
 
-// Test5x5BoardStringWithAlienTopLeft tests the string representation
-// of the board with dimensions 5x5 and an alien present
-// on the top left of the board.
-func Test5x5BoardStringWithAlienTopLeft(t *testing.T) {
+// Test5x5BoardStringWithAliens tests the string representation
+// of the board with dimensions 5x5 and aliens present
+// over the board.
+func Test5x5BoardStringWithAliens(t *testing.T) {
 	resetStateOfAliens()
 
 	board := NewBoard(5, 5)
 
 	DefaultAlien(0, 0)
+	DefaultAlien(0, 4)
+	DefaultAlien(4, 0)
+	DefaultAlien(4, 4)
 
 	expected := ""
 	expected += "+-----+" + "\n"
-	expected += "|V    |" + "\n"
+	expected += "|V   V|" + "\n"
 	expected += "|     |" + "\n"
 	expected += "|     |" + "\n"
 	expected += "|     |" + "\n"
-	expected += "|     |" + "\n"
+	expected += "|V   V|" + "\n"
 	expected += "*Λ    *"
 
 	actual := board.String()
