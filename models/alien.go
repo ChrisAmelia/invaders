@@ -1,5 +1,9 @@
 package models
 
+import (
+	"fmt"
+)
+
 // Alien represents the invader.
 type Alien struct {
 	life int
@@ -25,6 +29,22 @@ func NewAlien(life, x, y int, unicode string) Alien {
 	}
 
 	return alien
+}
+
+// GetAlienAt returns the alien located at (x,y).
+// If no alien is located at (x,y) then return a default alien and a non-nil error.
+// Parameter x defines the Alien's abscissa.
+// Parameter y defines the Alien's ordinate.
+func GetAlienAt(x, y int) (Alien, error) {
+	for _, alien := range aliens {
+		if alien.x == x && alien.y == y {
+			return alien, nil
+		}
+	}
+
+	alien := Alien{life:  -1}
+
+	return alien, fmt.Errorf("no alien found at (%d,%d)", x, y)
 }
 
 // DefaultAlien returns an instance of Alien
