@@ -18,6 +18,8 @@ func TestNegativeDimensionsBoardString(t *testing.T) {
 // Test0x0BoardToString tests the string representation
 // of the board with dimensions 0x0.
 func Test0x0BoardString(t *testing.T) {
+	resetStateOfAliens()
+
 	board := NewBoard(0, 0)
 
 	expected := ""
@@ -29,6 +31,8 @@ func Test0x0BoardString(t *testing.T) {
 // Test1x1BoardToString tests the string representation
 // of the board with dimensions 1x1.
 func Test1x1BoardString(t *testing.T) {
+	resetStateOfAliens()
+
 	board := NewBoard(1, 1)
 
 	expected := ""
@@ -47,6 +51,8 @@ func Test1x1BoardString(t *testing.T) {
 // Test4x4BoardString tests the string representation
 // of the board with dimensions 4x4.
 func Test4x4BoardString(t *testing.T) {
+	resetStateOfAliens()
+
 	board := NewBoard(4, 4)
 
 	expected := ""
@@ -69,6 +75,8 @@ func Test4x4BoardString(t *testing.T) {
 // of the board with dimensions 4x4 and a player present
 // on the bottom right.
 func Test4x4BoardStringWithPlayerBottomRight(t *testing.T) {
+	resetStateOfAliens()
+
 	board := NewBoard(4, 4)
 
 	board.player.x = board.width - 1
@@ -94,6 +102,8 @@ func Test4x4BoardStringWithPlayerBottomRight(t *testing.T) {
 // of the board with dimensions 5x5 and a player present
 // on the middle.
 func Test5x5BoardStringWithPlayerBottomRight(t *testing.T) {
+	resetStateOfAliens()
+
 	board := NewBoard(5, 5)
 
 	board.player.x = 2
@@ -113,4 +123,32 @@ func Test5x5BoardStringWithPlayerBottomRight(t *testing.T) {
 	message += expected
 
 	assert.Equal(t, expected, actual, message)
+}
+
+// Test5x5BoardStringWithAlienTopLeft tests the string representation
+// of the board with dimensions 5x5 and an alien present
+// on the top left of the board.
+func Test5x5BoardStringWithAlienTopLeft(t *testing.T) {
+	resetStateOfAliens()
+
+	board := NewBoard(5, 5)
+
+	DefaultAlien(0, 0)
+
+	expected := ""
+	expected += "+-----+" + "\n"
+	expected += "|V    |" + "\n"
+	expected += "|     |" + "\n"
+	expected += "|     |" + "\n"
+	expected += "|     |" + "\n"
+	expected += "|     |" + "\n"
+	expected += "*Λ    *"
+
+	actual := board.String()
+
+	message := "Expecting a square, representation should be :\n"
+	message += expected
+
+	assert.Equal(t, expected, actual, message)
+
 }

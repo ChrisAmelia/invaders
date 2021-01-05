@@ -3,7 +3,6 @@ package models
 type Board struct {
 	height, width int
 	player Player
-	aliens[] Alien
 }
 
 // NewBoard returns an instance of a board.
@@ -48,7 +47,13 @@ func (board Board) String() string {
 		mapString += "|"
 
 		for j := 0 ; j < board.width ; j++ {
-			mapString += " "
+			alien, error := GetAlienAt(i, j)
+
+			if error != nil {
+				mapString += " "
+			} else {
+				mapString += alien.unicode
+			}
 		}
 
 		mapString += "|\n"
