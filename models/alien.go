@@ -42,7 +42,7 @@ func GetAlienAt(x, y int) (Alien, error) {
 		}
 	}
 
-	alien := Alien{life:  -1}
+	alien := Alien{life: -1, unicode: "ø"}
 
 	return alien, fmt.Errorf("no alien found at (%d,%d)", x, y)
 }
