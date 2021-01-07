@@ -93,3 +93,26 @@ func TestAlienGetAlienAt(t *testing.T) {
 	assert.Equal(t, x1, alien1.x)
 	assert.Equal(t, y1, alien1.y)
 }
+
+// TestAlienGetHit tests method GetHit()
+// decreases alien's life by one.
+func TestAlienGetHit(t *testing.T) {
+	resetStateOfAliens()
+
+	// Initial state
+	alien := DefaultAlien(0, 0)
+
+	expected := 1
+	actual := alien.life
+
+	assert.Equal(t, expected, actual)
+
+	// Alien got hit, life decreases to 0
+	alien.GetHit()
+
+	expected = 0
+	actual = alien.life
+
+	assert.Equal(t, expected, actual)
+
+}

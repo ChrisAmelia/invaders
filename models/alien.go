@@ -74,3 +74,8 @@ func (alien *Alien) MoveDown() int {
 
 	return alien.y
 }
+
+// GetHit decreases the alien's life by one.
+func (alien *Alien) GetHit() {
+	alien.life -= 1
+}
