@@ -91,3 +91,29 @@ func TestPlayerIsDead(t *testing.T) {
 
 	assert.True(t, player.IsDead())
 }
+
+// TestPlayerChangeIconToSkull tests method ChangeIconToSkull()
+// changes player's unicode when player is dead.
+func TestPlayerChangeIconToSkull(t *testing.T) {
+	player := DefaultPlayer()
+
+	// Initial life: 3
+	player.ChangeIconToSkull()
+
+	expected := "Λ"
+	actual := player.unicode
+
+	assert.Equal(t, expected, actual)
+
+	// Player got hit thrice, player is dead
+	player.GetHit()
+	player.GetHit()
+	player.GetHit()
+	player.ChangeIconToSkull()
+
+	expected = "☠"
+	actual = player.unicode
+
+	assert.Equal(t, expected, actual)
+
+}

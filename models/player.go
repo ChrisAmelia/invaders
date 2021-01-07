@@ -52,3 +52,11 @@ func (player *Player) GetHit() {
 func (player *Player) IsDead() bool {
 	return player.life <= 0
 }
+
+// ChangeIconToSkull sets the player's unicode to a skull one if player is dead.
+// See unicode 2620 (☠).
+func (player *Player) ChangeIconToSkull() {
+	if (player.IsDead()) {
+		player.unicode = "☠"
+	}
+}
