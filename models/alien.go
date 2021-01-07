@@ -79,3 +79,9 @@ func (alien *Alien) MoveDown() int {
 func (alien *Alien) GetHit() {
 	alien.life -= 1
 }
+
+// IsDead returns true if alien's life has reached zero,
+// else returns false.
+func (alien *Alien) IsDead() bool {
+	return alien.life <= 0
+}

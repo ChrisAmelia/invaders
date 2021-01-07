@@ -116,3 +116,19 @@ func TestAlienGetHit(t *testing.T) {
 	assert.Equal(t, expected, actual)
 
 }
+
+// TestAlienIsDead tests method IsDead()
+// returns true if alien's life has reached zero.
+func TestAlienIsDead(t *testing.T) {
+	resetStateOfAliens()
+
+	alien := DefaultAlien(0, 0)
+
+	// Initial life: 1
+	assert.False(t, alien.IsDead())
+
+	// Alien got hit, life decreases to 0
+	alien.GetHit()
+
+	assert.True(t, alien.IsDead())
+}
