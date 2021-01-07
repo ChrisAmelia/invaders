@@ -32,9 +32,9 @@ func TestPlayerMoveLeft(t *testing.T) {
 	assert.Equal(t, expected, actual)
 }
 
-// TestPlayerGetHurt tests method GetHurts()
+// TestPlayerGetHit tests method GetHit()
 // decreases player's life by one.
-func TestPlayerGetHurt(t *testing.T) {
+func TestPlayerGetHit(t *testing.T) {
 	player := DefaultPlayer()
 
 	// Initial life: 3
@@ -44,7 +44,7 @@ func TestPlayerGetHurt(t *testing.T) {
 	assert.Equal(t, expected, actual)
 
 	// Player got hit, life decreases to 2
-	player.GetHurt()
+	player.GetHit()
 
 	expected = 2
 	actual = player.life
@@ -52,7 +52,7 @@ func TestPlayerGetHurt(t *testing.T) {
 	assert.Equal(t, expected, actual)
 
 	// Player got hit again, life decreases to 1
-	player.GetHurt()
+	player.GetHit()
 
 	expected = 1
 	actual = player.life
@@ -60,7 +60,7 @@ func TestPlayerGetHurt(t *testing.T) {
 	assert.Equal(t, expected, actual)
 
 	// Player got hit again, life decreases to 0
-	player.GetHurt()
+	player.GetHit()
 
 	expected = 0
 	actual = player.life

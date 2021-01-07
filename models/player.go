@@ -42,7 +42,7 @@ func (player *Player) MoveLeft() int {
 	return player.x
 }
 
-// GetHurt decreases the player's life by one.
-func (player *Player) GetHurt() {
+// GetHit decreases the player's life by one.
+func (player *Player) GetHit() {
 	player.life -= 1
 }
