@@ -46,3 +46,9 @@ func (player *Player) MoveLeft() int {
 func (player *Player) GetHit() {
 	player.life -= 1
 }
+
+// IsDead returns true if player's life has reached zero,
+// else returns false.
+func (player *Player) IsDead() bool {
+	return player.life <= 0
+}

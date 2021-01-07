@@ -67,3 +67,27 @@ func TestPlayerGetHit(t *testing.T) {
 
 	assert.Equal(t, expected, actual)
 }
+
+// TestPlayerIsDead tests method IsDead()
+// returns true if player's life reaches 0.
+func TestPlayerIsDead(t *testing.T) {
+	player := DefaultPlayer()
+
+	// Initial life: 3
+	assert.False(t, player.IsDead())
+
+	// Player got hit, life decreases to 2
+	player.GetHit()
+
+	assert.False(t, player.IsDead())
+
+	// Player got hit again, life decreases to 1
+	player.GetHit()
+
+	assert.False(t, player.IsDead())
+
+	// Player got hit again, life decreases to 0
+	player.GetHit()
+
+	assert.True(t, player.IsDead())
+}
