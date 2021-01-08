@@ -53,6 +53,11 @@ func (player *Player) IsDead() bool {
 	return player.life <= 0
 }
 
+// Die sets the player's life to zero.
+func (player *Player) Die() {
+	player.life = 0
+}
+
 // ChangeIconToSkull sets the player's unicode to a skull one if player is dead.
 // See unicode 2620 (☠).
 func (player *Player) ChangeIconToSkull() {

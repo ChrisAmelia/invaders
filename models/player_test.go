@@ -117,3 +117,23 @@ func TestPlayerChangeIconToSkull(t *testing.T) {
 	assert.Equal(t, expected, actual)
 
 }
+
+// TestPlayerDie tests method Die()
+// sets player's life to zero.
+func TestPlayerDie(t *testing.T) {
+	player := DefaultPlayer()
+
+	// Initial life: 3
+	expected := 3
+	actual := player.life
+
+	assert.Equal(t, expected, actual)
+
+	// Player suddenly dies
+	player.Die()
+
+	expected = 0
+	actual = player.life
+
+	assert.Equal(t, expected, actual)
+}
