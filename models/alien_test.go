@@ -114,7 +114,31 @@ func TestAlienGetHit(t *testing.T) {
 	actual = alien.life
 
 	assert.Equal(t, expected, actual)
+}
 
+// TestAlienChangeIconToEmpty tests method ChangeIconToEmpty()
+// changes alien's unicode when alien is dead.
+func TestAlienChangeIconToEmpty(t *testing.T) {
+	resetStateOfAliens()
+
+	alien := DefaultAlien(0, 0)
+
+	// Initial life: 1
+	alien.ChangeIconToEmpty()
+
+	expected := "V"
+	actual := alien.unicode
+
+	assert.Equal(t, expected, actual)
+
+	// Alien got hit, alien is dead
+	alien.GetHit()
+	alien.ChangeIconToEmpty()
+
+	expected = ""
+	actual = alien.unicode
+
+	assert.Equal(t, expected, actual)
 }
 
 // TestAlienIsDead tests method IsDead()

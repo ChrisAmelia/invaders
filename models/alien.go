@@ -86,6 +86,13 @@ func (alien *Alien) IsDead() bool {
 	return alien.life <= 0
 }
 
+// ChangeIconToEmpty sets the alien's unicode to an empty one if the alien is dead.
+func (alien *Alien) ChangeIconToEmpty() {
+	if (alien.IsDead()) {
+		alien.unicode = ""
+	}
+}
+
 // Die sets the alien's life to zero.
 func (alien *Alien) Die() {
 	alien.life = 0
