@@ -85,3 +85,8 @@ func (alien *Alien) GetHit() {
 func (alien *Alien) IsDead() bool {
 	return alien.life <= 0
 }
+
+// Die sets the alien's life to zero.
+func (alien *Alien) Die() {
+	alien.life = 0
+}

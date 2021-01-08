@@ -132,3 +132,25 @@ func TestAlienIsDead(t *testing.T) {
 
 	assert.True(t, alien.IsDead())
 }
+
+// TestAlienDie tests method Die()
+// sets alien's life to zero.
+func TestAlienDie(t *testing.T) {
+	resetStateOfAliens()
+
+	alien := DefaultAlien(0, 0)
+
+	// Initial life: 1
+	expected := 1
+	actual := alien.life
+
+	assert.Equal(t, expected, actual)
+
+	// Alien suddenly dies
+	alien.Die()
+
+	expected = 0
+	actual = alien.life
+
+	assert.Equal(t, expected, actual)
+}
