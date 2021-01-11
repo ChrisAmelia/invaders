@@ -1,4 +1,5 @@
-package models
+// Package alien Alien
+package alien
 
 import (
 	"fmt"
@@ -14,6 +15,12 @@ type Alien struct {
 var (
 	aliens []Alien
 )
+
+// ResetStateOfAliens sets the aliens to nil.
+// For testing purpose.
+func ResetStateOfAliens() {
+	aliens = nil
+}
 
 // NewAlien returns an instance of Alien.
 // Parameter life defines the life of the Alien.
@@ -65,6 +72,46 @@ func DefaultAlien(x, y int) Alien {
 	aliens = append(aliens, alien)
 
 	return alien
+}
+
+// Life returns the alien's life.
+func (alien *Alien) Life() int {
+	return alien.life
+}
+
+// SetLife sets the alien's life with given value.
+func (alien *Alien) SetLife(life int) {
+	alien.life = life
+}
+
+// X returns the alien's abscissa.
+func (alien *Alien) X() int {
+	return alien.x
+}
+
+// SetX sets the alien's abscissa life with given value.
+func (alien *Alien) SetX(x int)  {
+	alien.x = x
+}
+
+// Y returns the alien's ordinate.
+func (alien *Alien) Y() int {
+	return alien.y
+}
+
+// SetY sets the alien's ordinate with given value.
+func (alien *Alien) SetY(y int) {
+	alien.y = y
+}
+
+// Unicode returns the alien's unicode.
+func (alien *Alien) Unicode() string {
+	return alien.unicode
+}
+
+// SetUnicode sets the alien's life with given value.
+func (alien *Alien) SetUnicode(unicode string) {
+	alien.unicode = unicode
 }
 
 // MoveDown moves the alien one square down

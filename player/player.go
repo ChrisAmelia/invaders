@@ -1,5 +1,5 @@
-// Package models Player
-package models
+// Package player Player
+package player
 
 // Player represents the current player, the space vessel.
 type Player struct {
@@ -24,6 +24,37 @@ func DefaultPlayer() Player {
 	player := NewPlayer(3, 0, "Λ")
 
 	return player
+}
+
+// Life returns the player's life.
+func (player *Player) Life() int {
+	return player.life
+}
+
+// SetLife sets the player's life with given value.
+func (player *Player) SetLife(life int) {
+	player.life = life
+}
+
+
+// X returns the player's abscissa.
+func (player *Player) X() int {
+	return player.x
+}
+
+// SetX sets the player's abscissa with given value.
+func (player *Player) SetX(x int) {
+	player.x = x
+}
+
+// Unicode returns the player's unicode.
+func (player *Player) Unicode() string {
+	return player.unicode
+}
+
+// SetUnicode sets the player's unicode with given value.
+func (player *Player) SetUnicode(unicode string)  {
+	player.unicode = unicode
 }
 
 // MoveRight moves the player one square to the right

@@ -1,10 +1,49 @@
-package models
+package player
 
 import (
 	"testing"
 
 	"github.com/stretchr/testify/assert"
 )
+
+// TestPlayerSetLife tests method SetLife
+// updates the player's life.
+func TestPlayerSetLife(t *testing.T) {
+	player := DefaultPlayer()
+
+	player.SetLife(14)
+
+	expected := 14
+	actual := player.life
+
+	assert.Equal(t, expected, actual)
+}
+
+// TestPlayerSetX tests method SetX
+// updates the player's abscissa.
+func TestPlayerSetX(t *testing.T) {
+	player := DefaultPlayer()
+
+	player.SetX(14)
+
+	expected := 14
+	actual := player.x
+
+	assert.Equal(t, expected, actual)
+}
+
+// TestPlayerSetUnicode tests method SetUnicode
+// updates the player's unicode.
+func TestPlayerSetUnicode(t *testing.T) {
+	player := DefaultPlayer()
+
+	player.SetUnicode("foobar")
+
+	expected := "foobar"
+	actual := player.unicode
+
+	assert.Equal(t, expected, actual)
+}
 
 // TestPlayerMoveRight tests method MoveRight()
 // updates the player's position.

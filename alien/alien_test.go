@@ -1,4 +1,4 @@
-package models
+package alien
 
 import (
 	"testing"
@@ -6,17 +6,70 @@ import (
 	"github.com/stretchr/testify/assert"
 )
 
-// resetStateOfAliens sets the aliens to nil.
-// For testing purpose.
-func resetStateOfAliens() {
-	aliens = nil
+// TestAlienSetLife tests method SetLife
+// update the alien's life.
+func TestAlienSetLife(t *testing.T) {
+	ResetStateOfAliens()
+
+	alien := DefaultAlien(0, 0)
+
+	alien.SetLife(42)
+
+	expected := 42
+	actual := alien.life
+
+	assert.Equal(t, expected, actual)
 }
 
+// TestAlienSetX tests method SetX
+// update the alien's abscissa.
+func TestAlienSetX(t *testing.T) {
+	ResetStateOfAliens()
+
+	alien := DefaultAlien(0, 0)
+
+	alien.SetX(42)
+
+	expected := 42
+	actual := alien.x
+
+	assert.Equal(t, expected, actual)
+}
+
+// TestAlienSetY tests method SetY
+// update the alien's ordinate.
+func TestAlienSetY(t *testing.T) {
+	ResetStateOfAliens()
+
+	alien := DefaultAlien(0, 0)
+
+	alien.SetY(42)
+
+	expected := 42
+	actual := alien.y
+
+	assert.Equal(t, expected, actual)
+}
+
+// TestAlienSetUnicode tests method SetUnicode
+// update the alien's unicode.
+func TestAlienSetUnicode(t *testing.T) {
+	ResetStateOfAliens()
+
+	alien := DefaultAlien(0, 0)
+
+	alien.SetUnicode("foobar")
+
+	expected := "foobar"
+	actual := alien.unicode
+
+	assert.Equal(t, expected, actual)
+}
 // TestAlienDefaultAlien tests method DefaultAlien(int, int)
 // generates a new alien if given positions (x,y) are not occupied,
 // otherwise returns the existing alien.
 func TestAlienDefaultAlien(t *testing.T) {
-	resetStateOfAliens()
+	ResetStateOfAliens()
 
 	x, y := 1, 1
 
@@ -63,7 +116,7 @@ func TestAlienMoveDown(t *testing.T) {
 // returns an alien located at given positions if it exists,
 // otherwise tests than an error is returned.
 func TestAlienGetAlienAt(t *testing.T) {
-	resetStateOfAliens()
+	ResetStateOfAliens()
 
 	x0, y0 := 0, 0
 	x1, y1 := 1, 1
@@ -97,7 +150,7 @@ func TestAlienGetAlienAt(t *testing.T) {
 // TestAlienGetHit tests method GetHit()
 // decreases alien's life by one.
 func TestAlienGetHit(t *testing.T) {
-	resetStateOfAliens()
+	ResetStateOfAliens()
 
 	// Initial state
 	alien := DefaultAlien(0, 0)
@@ -119,7 +172,7 @@ func TestAlienGetHit(t *testing.T) {
 // TestAlienChangeIconToEmpty tests method ChangeIconToEmpty()
 // changes alien's unicode when alien is dead.
 func TestAlienChangeIconToEmpty(t *testing.T) {
-	resetStateOfAliens()
+	ResetStateOfAliens()
 
 	alien := DefaultAlien(0, 0)
 
@@ -144,7 +197,7 @@ func TestAlienChangeIconToEmpty(t *testing.T) {
 // TestAlienIsDead tests method IsDead()
 // returns true if alien's life has reached zero.
 func TestAlienIsDead(t *testing.T) {
-	resetStateOfAliens()
+	ResetStateOfAliens()
 
 	alien := DefaultAlien(0, 0)
 
@@ -160,7 +213,7 @@ func TestAlienIsDead(t *testing.T) {
 // TestAlienDie tests method Die()
 // sets alien's life to zero.
 func TestAlienDie(t *testing.T) {
-	resetStateOfAliens()
+	ResetStateOfAliens()
 
 	alien := DefaultAlien(0, 0)
 

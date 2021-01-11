@@ -1,14 +1,20 @@
-package models
+// Package board Board
+package board
+
+import (
+	"invaders.com/alien"
+	"invaders.com/player"
+)
 
 type Board struct {
 	height, width int
-	player Player
+	player player.Player
 }
 
 // NewBoard returns an instance of a board.
 // The paramaeters width and height are speaking for themselves.
 func NewBoard(width, height int) *Board {
-	player := DefaultPlayer()
+	player := player.DefaultPlayer()
 
 	board := new(Board)
 
@@ -47,12 +53,12 @@ func (board Board) String() string {
 		mapString += "|"
 
 		for j := 0 ; j < board.width ; j++ {
-			alien, error := GetAlienAt(i, j)
+			alien, error := alien.GetAlienAt(i, j)
 
 			if error != nil {
 				mapString += " "
 			} else {
-				mapString += alien.unicode
+				mapString += alien.Unicode()
 			}
 		}
 
@@ -63,8 +69,8 @@ func (board Board) String() string {
 	mapString += "*"
 
 	for j := 0 ; j < board.width ; j++ {
-		if j == board.player.x {
-			mapString += board.player.unicode
+		if j == board.player.X() {
+			mapString += board.player.Unicode()
 		} else {
 			mapString += " "
 		}
