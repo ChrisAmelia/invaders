@@ -115,18 +115,8 @@ func TestPlayerIsDead(t *testing.T) {
 	// Initial life: 3
 	assert.False(t, player.IsDead())
 
-	// Player got hit, life decreases to 2
-	player.GetHit()
-
-	assert.False(t, player.IsDead())
-
-	// Player got hit again, life decreases to 1
-	player.GetHit()
-
-	assert.False(t, player.IsDead())
-
-	// Player got hit again, life decreases to 0
-	player.GetHit()
+	// Player suddenly dies
+	player.Die()
 
 	assert.True(t, player.IsDead())
 }
