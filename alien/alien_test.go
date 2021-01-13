@@ -204,8 +204,8 @@ func TestAlienIsDead(t *testing.T) {
 	// Initial life: 1
 	assert.False(t, alien.IsDead())
 
-	// Alien got hit, life decreases to 0
-	alien.GetHit()
+	// Alien suddenly dies
+	alien.Die()
 
 	assert.True(t, alien.IsDead())
 }
