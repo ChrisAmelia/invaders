@@ -34,8 +34,8 @@ func ResetStateOfAliens() {
 }
 
 // GenerateAlienAt is a wrapper of package alien's DefaultAlien.
-func GenerateAlienAt(x, y int) {
-	alien.DefaultAlien(x, y)
+func GenerateAlienAt(x, y int) alien.Alien {
+	return alien.DefaultAlien(x, y)
 }
 
 // String returns a representation of the board.
