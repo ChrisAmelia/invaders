@@ -22,6 +22,10 @@ func ResetStateOfAliens() {
 	aliens = nil
 }
 
+func GetAliens() *[]Alien {
+	return &aliens
+}
+
 // NewAlien returns an instance of Alien.
 // Parameter life defines the life of the Alien.
 // Parameter x defines the Alien's abscissa.

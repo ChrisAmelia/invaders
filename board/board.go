@@ -1,4 +1,5 @@
-// Package board Board
+// Package board contains its width and length,
+// the player and possibly some aliens (if they haven't been exterminated).
 package board
 
 import (
@@ -9,6 +10,7 @@ import (
 type Board struct {
 	height, width int
 	player player.Player
+	aliens *[]alien.Alien
 }
 
 // NewBoard returns an instance of a board.
@@ -21,6 +23,7 @@ func NewBoard(width, height int) *Board {
 	board.player = player
 	board.width  = width
 	board.height = height
+	board.aliens = alien.GetAliens()
 
 	return board
 }
