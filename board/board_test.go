@@ -4,8 +4,6 @@ import (
 	"fmt"
 	"testing"
 
-	"invaders.com/alien"
-
 	"github.com/stretchr/testify/assert"
 )
 
@@ -20,7 +18,7 @@ func TestNegativeDimensionsBoardString(t *testing.T) {
 // Test0x0BoardToString tests the string representation
 // of the board with dimensions 0x0.
 func Test0x0BoardString(t *testing.T) {
-	alien.ResetStateOfAliens()
+	ResetStateOfAliens()
 
 	board := NewBoard(0, 0)
 
@@ -33,7 +31,7 @@ func Test0x0BoardString(t *testing.T) {
 // Test1x1BoardToString tests the string representation
 // of the board with dimensions 1x1.
 func Test1x1BoardString(t *testing.T) {
-	alien.ResetStateOfAliens()
+	ResetStateOfAliens()
 
 	board := NewBoard(1, 1)
 
@@ -53,7 +51,7 @@ func Test1x1BoardString(t *testing.T) {
 // Test4x4BoardString tests the string representation
 // of the board with dimensions 4x4.
 func Test4x4BoardString(t *testing.T) {
-	alien.ResetStateOfAliens()
+	ResetStateOfAliens()
 
 	board := NewBoard(4, 4)
 
@@ -77,7 +75,7 @@ func Test4x4BoardString(t *testing.T) {
 // of the board with dimensions 4x4 and a player present
 // on the bottom right.
 func Test4x4BoardStringWithPlayerBottomRight(t *testing.T) {
-	alien.ResetStateOfAliens()
+	ResetStateOfAliens()
 
 	board := NewBoard(4, 4)
 
@@ -104,7 +102,7 @@ func Test4x4BoardStringWithPlayerBottomRight(t *testing.T) {
 // of the board with dimensions 5x5 and a player present
 // on the middle.
 func Test5x5BoardStringWithPlayerBottomRight(t *testing.T) {
-	alien.ResetStateOfAliens()
+	ResetStateOfAliens()
 
 	board := NewBoard(5, 5)
 
@@ -131,14 +129,14 @@ func Test5x5BoardStringWithPlayerBottomRight(t *testing.T) {
 // of the board with dimensions 5x5 and aliens present
 // over the board.
 func Test5x5BoardStringWithAliens(t *testing.T) {
-	alien.ResetStateOfAliens()
+	ResetStateOfAliens()
 
 	board := NewBoard(5, 5)
 
-	alien.DefaultAlien(0, 0)
-	alien.DefaultAlien(0, 4)
-	alien.DefaultAlien(4, 0)
-	alien.DefaultAlien(4, 4)
+	GenerateAlienAt(0, 0)
+	GenerateAlienAt(0, 4)
+	GenerateAlienAt(4, 0)
+	GenerateAlienAt(4, 4)
 
 	expected := ""
 	expected += "+-----+" + "\n"
